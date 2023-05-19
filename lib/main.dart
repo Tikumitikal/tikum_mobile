@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tikum_mobile/pages/CartPage.dart';
 import 'package:tikum_mobile/pages/HomePage.dart';
+import 'package:tikum_mobile/pages/ItemPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => HomePage(),
         "cartPage": (context) => CartPage(),
+        "itemPage": (context) => ItemPage()
       },
     );
   }
