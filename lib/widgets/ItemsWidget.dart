@@ -73,7 +73,7 @@ class ItemsWidget extends StatelessWidget {
               Container(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Tolong tulis deskripsi produk yaa intan",
+                  "Enak bangett kalian harus coba gamau tau!",
                   style: TextStyle(
                       fontSize: 12, color: Color.fromRGBO(5, 90, 105, 1.000)),
                 ),
