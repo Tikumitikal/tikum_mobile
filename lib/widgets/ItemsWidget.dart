@@ -62,7 +62,7 @@ class ItemsWidget extends StatelessWidget {
                 padding: EdgeInsets.only(bottom: 8),
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Product Title",
+                  "Sanger",
                   style: TextStyle(
                     fontSize: 16,
                     color: Color.fromRGBO(5, 90, 105, 1.000),

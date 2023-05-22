@@ -27,7 +27,7 @@ class CartItemSamples extends StatelessWidget {
               height: 70,
               width: 70,
               margin: EdgeInsets.only(right: 15),
-              child: Image.asset("assets/contoh.jpg"),
+              child: Image.asset("assets/latte.jpg"),
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10),
@@ -35,13 +35,13 @@ class CartItemSamples extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Product Title",
+                  Text("Coffee Latte",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Color.fromRGBO(5, 90, 105, 1.000),
                   ),),
-                  Text("15\k",
+                  Text("17\k",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
