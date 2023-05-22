@@ -39,6 +39,8 @@ dependencies:
   curved_navigation_bar: ^1.0.3
   clippy_flutter: ^2.0.0-nullsafety.1
   flutter_rating_bar: ^4.0.1
+  dots_indicator: ^3.0.0
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:
@@ -64,9 +66,14 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+<<<<<<< Updated upstream
   - assets/logo.jpg
   - assets/contoh.jpg
   - assets/latte.jpg
+=======
+  - assets/images/logo.jpg
+  - assets/images/contoh.jpg
+>>>>>>> Stashed changes
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
