@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:tikum_mobile/utils/colors.dart';
 import 'package:tikum_mobile/utils/dimension.dart';
+import 'package:tikum_mobile/widgets/app_column.dart';
 import 'package:tikum_mobile/widgets/big_text.dart';
 import 'package:tikum_mobile/widgets/small_text.dart';
 
@@ -203,32 +204,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               child: Container(
                 padding: EdgeInsets.only(
                     top: Dimensions.height15, left: 15, right: 15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    BigText(text: "Chicken Salted Egg"),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      children: [
-                        Wrap(
-                          children: List.generate(5, (index) {
-                            return Icon(
-                              Icons.star,
-                              color: AppColors.TikumColor,
-                              size: 15,
-                            );
-                          }),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        SmallText(text: "4.8")
-                      ],
-                    ),
-                  ],
-                ),
+                child: AppColumn(text: "Ice Coffee Milk",),
               ),
             ),
           )

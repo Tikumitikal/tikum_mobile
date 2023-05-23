@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:tikum_mobile/home/food_page_body.dart';
+import 'package:tikum_mobile/pages/home/food_page_body.dart';
 import 'package:tikum_mobile/utils/colors.dart';
 import 'package:tikum_mobile/widgets/big_text.dart';
 import 'package:tikum_mobile/widgets/small_text.dart';
