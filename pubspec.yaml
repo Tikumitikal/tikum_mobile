@@ -66,14 +66,20 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-<<<<<<< Updated upstream
-  - assets/logo.jpg
-  - assets/contoh.jpg
-  - assets/latte.jpg
-=======
   - assets/images/logo.jpg
   - assets/images/contoh.jpg
->>>>>>> Stashed changes
+  - assets/images/chocolateIce.jpg
+  - assets/images/coffeeMilk.jpg
+  - assets/images/coffeeMilkIce.jpg
+  - assets/images/filterHotIce.jpg
+  - assets/images/latte.jpg
+  - assets/images/matchaIce.jpg
+  - assets/images/redVelvetIce.jpg
+  - assets/images/robustaDripSusu.jpg
+  - assets/images/sanger.jpg
+  - assets/images/strawberry.jpg
+  - assets/images/vanillaIce.jpg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
