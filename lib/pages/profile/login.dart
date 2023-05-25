@@ -57,7 +57,7 @@ class Login extends StatelessWidget {
               height: size.height * 0.01,
             ),
             Text(
-              'Discover your social & Try to Login',
+              'Login ke akun anda',
               style: GoogleFonts.inter(
                 fontSize: 14.0,
                 color: const Color(0xFF969AA8),
@@ -104,7 +104,7 @@ class Login extends StatelessWidget {
 
   Widget logo(double height_, double width_) {
     return SvgPicture.asset(
-      'assets/images/logo.jpg',
+      'assets/images/logologin.png',
       height: height_,
       width: width_,
     );
@@ -157,7 +157,7 @@ class Login extends StatelessWidget {
         maxLines: 1,
         cursorColor: const Color(0xFF15224F),
         decoration: InputDecoration(
-            labelText: 'Email/ Phone number',
+            labelText: 'Email/ Nomor handphone',
             labelStyle: GoogleFonts.inter(
               fontSize: 12.0,
               color: const Color(0xFF969AA8),
@@ -236,7 +236,7 @@ class Login extends StatelessWidget {
         ),
         children: const [
           TextSpan(
-            text: 'Don’t have an account ?',
+            text: 'Belum memiliki akun?',
           ),
           TextSpan(
             text: ' ',
@@ -257,4 +257,4 @@ class Login extends StatelessWidget {
   }
 }
 
-//logo masih belum tampill allahuakbar
+//logo masih belum tampill allahuakbar, btw ini masih ui belum aku sambungin firebase wkwk, button forget password nya belum

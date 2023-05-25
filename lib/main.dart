@@ -5,6 +5,7 @@ import 'package:tikum_mobile/pages/CartPage.dart';
 import 'package:tikum_mobile/pages/ItemPage.dart';
 import 'package:get/get.dart';
 import 'package:tikum_mobile/pages/profile/login.dart';
+import 'package:tikum_mobile/pages/profile/register.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         //"/": (context) => PopularFoodDetail(),
-        "/": (context) => Login(),
+        "/": (context) => Register(),
         // "/": (context) => HomePage(),
         "cartPage": (context) => CartPage(),
         "itemPage": (context) => ItemPage()

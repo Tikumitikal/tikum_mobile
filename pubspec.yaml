@@ -81,6 +81,8 @@ flutter:
   - assets/images/sanger.jpg
   - assets/images/strawberry.jpg
   - assets/images/vanillaIce.jpg
+  - assets/images/logologin.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
