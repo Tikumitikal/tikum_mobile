@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
       ),
       routes: {
-        //"/": (context) => PopularFoodDetail(),
-        "/": (context) => Register(),
+        "/": (context) => PopularFoodDetail(),
+       // "/": (context) => ItemPage(),
         // "/": (context) => HomePage(),
         "cartPage": (context) => CartPage(),
         "itemPage": (context) => ItemPage()
@@ -28,3 +28,4 @@ class MyApp extends StatelessWidget {
 } 
 
 // hayolohh
+//dilihat lihat makin pusing 😒

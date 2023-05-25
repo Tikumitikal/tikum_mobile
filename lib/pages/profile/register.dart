@@ -322,4 +322,5 @@ class Register extends StatelessWidget {
   }
 }
 
-//logo masih belum tampill allahuakbar, btw ini masih ui belum aku sambungin firebase wkwk, button forget password nya belum
+//logo masih belum tampill allahuakbar, btw ini masih ui belum aku sambungin firebase wkwk, forget password nya belum
+
