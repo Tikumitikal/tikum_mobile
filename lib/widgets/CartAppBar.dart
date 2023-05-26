@@ -13,7 +13,7 @@ class CartAppBar extends StatelessWidget {
           InkWell(
             onTap: () {
               // balik dari halaman chart ke halaman sebelumnya
-              Navigator.pop(context);
+              Navigator.pop(context, "");
             },
             child: Icon(
               Icons.arrow_back,

@@ -86,61 +86,69 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
         // list of food and images
         ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: 12,
-            itemBuilder: (context, index) {
-              return Container(
-                  margin: EdgeInsets.only(
-                      left: Dimensions.width20,
-                      right: Dimensions.width20,
-                      bottom: Dimensions.height10),
-                  child: Row(
-                    children: [
-                      
-                      // images section
-                      Container(
-                        width: Dimensions.ListViewImgSize,
-                        height:Dimensions.ListViewImgSize ,
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: 12,
+          itemBuilder: (context, index) {
+            return Container(
+                margin: EdgeInsets.only(
+                    left: Dimensions.width20,
+                    right: Dimensions.width20,
+                    bottom: Dimensions.height10),
+                child: Row(
+                  children: [
+                    // images section
+                    Container(
+                      width: Dimensions.ListViewImgSize,
+                      height: Dimensions.ListViewImgSize,
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.radius20),
+                          color: Colors.white30,
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image:
+                                  AssetImage("assets/images/coffeeMilk.jpg"))),
+                    ),
+
+                    // text container
+                    Expanded(
+                      child: Container(
+                        height: Dimensions.ListViewTextContSize,
                         decoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.circular(Dimensions.radius20),
-                            color: Colors.white30,
-                            image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage(
-                                    "assets/images/coffeeMilk.jpg"))),
-                      ),
-                      
-                      // text container
-                      Expanded(
-                        child: Container(
-                          height: Dimensions.ListViewTextContSize,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(Dimensions.radius20),
-                              bottomRight: Radius.circular(Dimensions.radius20),
-                            ),
-                            color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(Dimensions.radius20),
+                            bottomRight: Radius.circular(Dimensions.radius20),
                           ),
-                          child: Padding(padding: EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10),
+                          color: Colors.white,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              left: Dimensions.width10,
+                              right: Dimensions.width10),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               BigText(text: "Iced Coffee Milk Gak Enak"),
-                              SizedBox(height: Dimensions.height10,),
-                              SmallText(text: "dari biji kopi gatau jauh pokok, beli wes"),
-                              SizedBox(height: Dimensions.height10,),
+                              SizedBox(
+                                height: Dimensions.height10,
+                              ),
+                              SmallText(
+                                  text:
+                                      "dari biji kopi gatau jauh pokok, beli wes"),
+                              SizedBox(
+                                height: Dimensions.height10,
+                              ),
                             ],
-                          ),),
+                          ),
                         ),
-                      )
-                    ],
-                  ));
-            },
-          ),
-        
+                      ),
+                    )
+                  ],
+                ));
+          },
+        ),
       ],
     );
   }
@@ -204,7 +212,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               child: Container(
                 padding: EdgeInsets.only(
                     top: Dimensions.height15, left: 15, right: 15),
-                child: AppColumn(text: "Ice Coffee Milk",),
+                child: AppColumn(
+                  text: "Ice Coffee Milk",
+                ),
               ),
             ),
           )
