@@ -126,7 +126,7 @@ class ItemPage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 12),
                       child: Text(
-                        "intan ini ganti deskripsi menu, SEMANGAT!!! AKU TAU KAMU MUMET<3",
+                        "Es kopi susu dengan berbagai varian rasa yang dapat kamu nikmati sesuai isi hatimu",
                         textAlign: TextAlign.justify,
                         style: TextStyle(
                             fontSize: 17,

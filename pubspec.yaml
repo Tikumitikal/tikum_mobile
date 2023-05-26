@@ -41,6 +41,8 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   dots_indicator: ^3.0.0
   get: ^4.6.5
+  google_fonts: ^4.0.5
+  flutter_svg: ^2.0.6
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +81,8 @@ flutter:
   - assets/images/sanger.jpg
   - assets/images/strawberry.jpg
   - assets/images/vanillaIce.jpg
+  - assets/images/logologin.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -6,6 +6,8 @@ import 'package:tikum_mobile/pages/home/main_food_page.dart';
 import 'package:tikum_mobile/pages/CartPage.dart';
 import 'package:tikum_mobile/pages/ItemPage.dart';
 import 'package:get/get.dart';
+import 'package:tikum_mobile/pages/profile/login.dart';
+import 'package:tikum_mobile/pages/profile/register.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
       ),
       routes: {
-        "/": (context) => RecommendedFoodDetail(),
+        "/": (context) => PopularFoodDetail(),
         // "/": (context) => MainFoodPage(),
         // "/": (context) => HomePage(),
         "cartPage": (context) => CartPage(),
@@ -28,3 +30,4 @@ class MyApp extends StatelessWidget {
 } 
 
 // hayolohh
+//dilihat lihat makin pusing 😒
