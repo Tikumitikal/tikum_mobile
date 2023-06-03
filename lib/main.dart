@@ -3,21 +3,24 @@ import 'package:tikum_mobile/controllers/popular_product_controller.dart';
 import 'package:tikum_mobile/pages/HomePage.dart';
 import 'package:tikum_mobile/pages/food/popular_food_detail.dart';
 import 'package:tikum_mobile/pages/food/recommended_food_detail.dart';
+import 'package:tikum_mobile/pages/home/food_page_body.dart';
 import 'package:tikum_mobile/pages/home/main_food_page.dart';
 import 'package:tikum_mobile/pages/CartPage.dart';
 import 'package:tikum_mobile/pages/ItemPage.dart';
 import 'package:get/get.dart';
 import 'package:tikum_mobile/pages/profile/login.dart';
 import 'package:tikum_mobile/pages/profile/register.dart';
-import 'helper/dependencies.dart' as dep;
+import 'package:tikum_mobile/helper/dependencies.dart' as dep;
 
-Future<void> main() async { 
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dep.init;
-  runApp(MyApp());
+  await dep.init();
+  runApp(const MyApp());
 }
-
+ 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
       Get.find<PopularProductController>().getPopularProductList();
@@ -27,7 +30,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
       ),
       routes: {
-        "/": (context) => PopularFoodDetail(),
+        "/": (context) => FoodPageBody(),
         // "/": (context) => MainFoodPage(),
         // "/": (context) => HomePage(),
         "cartPage": (context) => CartPage(),
