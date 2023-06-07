@@ -2,28 +2,96 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:http/http.dart' as http;
 import 'package:tikum_mobile/resource/MyTextField.dart';
 import 'package:tikum_mobile/resource/Mycolor.dart';
 import 'package:tikum_mobile/resource/Myfont.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:tikum_mobile/screen/register_screen.dart';
+import 'package:tikum_mobile/screen/login_screen.dart';
 import 'package:tikum_mobile/services/api_connect.dart';
-import 'package:http/http.dart' as http;
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  bool showpass = true;
+class _RegisterPageState extends State<RegisterPage> {
   var email = TextEditingController();
   var pw = TextEditingController();
+  var name = TextEditingController();
+  var nohp = TextEditingController();
+  final formKey = GlobalKey<FormState>();
+  bool showpass = true;
   bool isLoading = false;
+  String errorMsg = '';
+  void verifyRegister() {
+    if (email.text.isEmpty) {
+      Fluttertoast.showToast(
+          msg: "Email tidak boleh kosong", backgroundColor: Colors.red);
+    } else if (pw.text.isEmpty) {
+      Fluttertoast.showToast(
+          msg: "Password tidak boleh kosong", backgroundColor: Colors.red);
+    } else if (pw.text.length < 8) {
+      Fluttertoast.showToast(
+          msg: "Password tidak boleh kurang dari 8 karakter",
+          backgroundColor: Colors.red);
+    } else if (name.text.isEmpty) {
+      Fluttertoast.showToast(
+          msg: "Nama tidak boleh kosong", backgroundColor: Colors.red);
+    } else if (nohp.text.isEmpty) {
+      Fluttertoast.showToast(
+          msg: "No Telepon tidak boleh kosong", backgroundColor: Colors.red);
+    } else if (nohp.text.length < 11) {
+      Fluttertoast.showToast(
+          msg: "No telepon tidak boleh kurang dari 11 angka",
+          backgroundColor: Colors.red);
+    } else {
+      register();
+    }
+  }
+
+  Future register() async {
+    setState(() {
+      isLoading = true;
+    });
+    try {
+      var res = await http.post(Uri.parse(ApiConnect.register), body: {
+        "email": email.text,
+        "no_hp": nohp.text,
+        "password": pw.text,
+        "nama": name.text
+      });
+      if (res.statusCode == 200) {
+        final data = jsonDecode(res.body);
+        if (data["message"] == "Berhasil Register") {
+          Fluttertoast.showToast(
+              msg: "Registrasi akun berhasil", backgroundColor: Colors.green);
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => LoginPage()));
+          setState(() {
+            email.clear();
+            nohp.clear();
+            name.clear();
+            pw.clear();
+          });
+        }
+      } else {
+        final data = jsonDecode(res.body);
+        if (data["message"] == "Email sudah terdaftar") {
+          Fluttertoast.showToast(
+              msg: "Email sudah terdaftar", backgroundColor: Colors.red);
+        }
+      }
+    } catch (e) {
+      // errorMsg = e.toString();
+      print(e.toString());
+    }
+    setState(() {
+      isLoading = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             Container(
               padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
-              height: 350,
+              height: 300,
               width: MediaQuery.of(context).size.width,
               color: TikumColor,
               child: Column(
@@ -46,18 +114,11 @@ class _LoginPageState extends State<LoginPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Welcome",
+                    "Create Your\nAccount",
                     style: MyFont.montserrat(
                         fontSize: 30,
                         color: white,
                         fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    "Sign in to continue",
-                    style: MyFont.montserrat(
-                        fontSize: 14,
-                        color: white,
-                        fontWeight: FontWeight.normal),
                   ),
                 ],
               ),
@@ -75,6 +136,36 @@ class _LoginPageState extends State<LoginPage> {
                     FilteringTextInputFormatter.singleLineFormatter,
                 length: 100,
                 icon: Icons.mail,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: GetTextFieldUser(
+                controller: name,
+                label: "Name",
+                keyboardType: TextInputType.text,
+                inputFormatters:
+                    FilteringTextInputFormatter.singleLineFormatter,
+                length: 100,
+                icon: Icons.person,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: GetTextFieldUser(
+                controller: nohp,
+                label: "No. Telepon",
+                keyboardType: TextInputType.number,
+                inputFormatters:
+                    FilteringTextInputFormatter.singleLineFormatter,
+                length: 100,
+                icon: Icons.phone_rounded,
               ),
             ),
             const SizedBox(
@@ -152,13 +243,13 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius: BorderRadius.circular(10),
                       )),
                   onPressed: () async {
-                    isLoading ? null : verifylogin();
+                    isLoading ? null : verifyRegister();
                   },
                   child: isLoading
                       ? CircularProgressIndicator(
                           color: white,
                         )
-                      : Text('Sign In',
+                      : Text('Sign Up',
                           style: MyFont.poppins(fontSize: 14, color: white)),
                 )),
             const SizedBox(
@@ -168,11 +259,11 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Dont have already account ? ",
+                  "have already account ? ",
                   style: MyFont.poppins(fontSize: 11, color: grey),
                 ),
                 InkWell(
-                  child: Text("Sign Up",
+                  child: Text("Sign In",
                       style: MyFont.poppins(
                           fontSize: 12,
                           color: TikumColor,
@@ -181,7 +272,7 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const RegisterPage()));
+                            builder: (context) => const LoginPage()));
                   },
                 ),
               ],
@@ -190,60 +281,5 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
-  }
-
-  void verifylogin() {
-    if (email.text.isEmpty) {
-      Fluttertoast.showToast(
-          msg: "Email tidak boleh kosong", backgroundColor: Colors.red);
-    } else if (pw.text.isEmpty) {
-      Fluttertoast.showToast(
-          msg: "Password tidak boleh kosong", backgroundColor: Colors.red);
-    } else if (pw.text.length < 8) {
-      Fluttertoast.showToast(
-          msg: "Password tidak boleh kurang dari 8 karakter",
-          backgroundColor: Colors.red);
-    } else {
-      login();
-    }
-  }
-
-  Future login() async {
-    setState(() {
-      isLoading = true;
-    });
-    try {
-      var res = await http.post(Uri.parse(ApiConnect.login),
-          body: {"email": email.text, "password": pw.text});
-      final data = jsonDecode(res.body);
-      if (res.statusCode == 200) {
-        if (data['message'] == "login successfull") {
-          Fluttertoast.showToast(
-              msg: "Berhasil Login", backgroundColor: Colors.green);
-          final prefs = await SharedPreferences.getInstance();
-          prefs.setString('token', data['token']);
-          // Navigator.pushAndRemoveUntil(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) => const HomePage(),
-          //   ),
-          //   (Route<dynamic> route) => false,
-          // );
-        }
-      } else {
-        if (data['message'] == "incorrect password") {
-          Fluttertoast.showToast(
-              msg: "Password Salah", backgroundColor: Colors.red);
-        } else if (data['message'] == "incorrect email") {
-          Fluttertoast.showToast(
-              msg: "Email belum terdaftar", backgroundColor: Colors.red);
-        }
-      }
-    } catch (e) {
-      print(e.toString());
-    }
-    setState(() {
-      isLoading = false;
-    });
   }
 }
