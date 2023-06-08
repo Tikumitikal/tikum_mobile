@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tikum_mobile/resource/Myfont.dart';
+import 'package:tikum_mobile/screen/HomePage/homepage.dart';
 import 'package:tikum_mobile/screen/login_screen.dart';
 
 import '../resource/Mycolor.dart';
@@ -39,12 +40,12 @@ class _SplashScreenState extends State<SplashScreen> {
       Duration(seconds: 3),
       () {
         if (_isLoggedIn) {
-          // Navigator.pushReplacement(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) => HomePage(), // Ganti dengan HomePage()
-          //   ),
-          // );
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomePage(), // Ganti dengan HomePage()
+            ),
+          );
         } else {
           Navigator.pushReplacement(
             context,

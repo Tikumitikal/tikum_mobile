@@ -8,6 +8,7 @@ import 'package:tikum_mobile/resource/MyTextField.dart';
 import 'package:tikum_mobile/resource/Mycolor.dart';
 import 'package:tikum_mobile/resource/Myfont.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:tikum_mobile/screen/HomePage/homepage.dart';
 import 'package:tikum_mobile/screen/register_screen.dart';
 import 'package:tikum_mobile/services/api_connect.dart';
 import 'package:http/http.dart' as http;
@@ -222,13 +223,13 @@ class _LoginPageState extends State<LoginPage> {
               msg: "Berhasil Login", backgroundColor: Colors.green);
           final prefs = await SharedPreferences.getInstance();
           prefs.setString('token', data['token']);
-          // Navigator.pushAndRemoveUntil(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) => const HomePage(),
-          //   ),
-          //   (Route<dynamic> route) => false,
-          // );
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const HomePage(),
+            ),
+            (Route<dynamic> route) => false,
+          );
         }
       } else {
         if (data['message'] == "incorrect password") {
