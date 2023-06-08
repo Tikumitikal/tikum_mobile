@@ -10,6 +10,7 @@ class ApiConnect {
 
   static const product = "$connectHost/product";
   static const table = "$connectHost/table";
+  static const kategori = "$connectHost/kategori";
   static const producttop = "$connectHost/product-top";
   static const reservasistatus = "$connectHost/reservasi-status";
   static const addreservasi = "$connectHost/reservasi-add";
