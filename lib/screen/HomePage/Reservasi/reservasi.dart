@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tikum_mobile/resource/Mycolor.dart';
 import 'package:tikum_mobile/resource/Myfont.dart';
+import 'package:tikum_mobile/screen/HomePage/Reservasi/Tabbar_View/dibatalkan.dart';
+import 'package:tikum_mobile/screen/HomePage/Reservasi/Tabbar_View/konfirmasi.dart';
+import 'package:tikum_mobile/screen/HomePage/Reservasi/Tabbar_View/menunggu_konfirmasi.dart';
+import 'package:tikum_mobile/screen/HomePage/Reservasi/Tabbar_View/selesai.dart';
 import 'package:tikum_mobile/screen/HomePage/Reservasi/add_reservasi.dart';
 
 class Reservasi extends StatefulWidget {
@@ -104,22 +108,22 @@ class _ReservasiState extends State<Reservasi> {
                     child: TabBarView(children: [
                   SizedBox(
                     child: Column(
-                      children: [],
+                      children: [MenungguKonfirmasi()],
                     ),
                   ),
                   SizedBox(
                     child: Column(
-                      children: [],
+                      children: [Konfirmasi()],
                     ),
                   ),
                   SizedBox(
                     child: Column(
-                      children: [],
+                      children: [Selesai()],
                     ),
                   ),
                   SizedBox(
                     child: Column(
-                      children: [],
+                      children: [Dibatalkan()],
                     ),
                   ),
                 ]))
