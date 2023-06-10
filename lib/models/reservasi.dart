@@ -63,7 +63,7 @@ class Meja {
 
   Meja.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    noMeja = int.parse(json['no_meja']);
+    noMeja = json['no_meja'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
   }
