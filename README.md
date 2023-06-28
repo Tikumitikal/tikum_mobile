@@ -1,11 +1,10 @@
 ## Tikumitikal Mobile App
 
-A Flutter project.
+Mobile Application for reservation and catalog menus
 
 #### TODO :
-- [ ] camera scan
-- [ ] cart
+- [x] reservation
 - [x] waras
 
 #### References :
-[Web App & Backend](https://github.com/Tikumitikal/Tikumitikal-Web)
+[Web App & Backend](https://github.com/Tikumitikal/Tikumitikal-Laravel)
